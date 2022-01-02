@@ -1,0 +1,9 @@
+<svg width="124" height="38" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <text style="cursor: move;" font-weight="bold" xml:space="preserve" text-anchor="start" font-family="'Sansita Swashed'" font-size="25" id="svg_1" y="27.15385" x="2.9231" stroke-width="0" stroke="#000" fill="#000000">Cappy</text>
+  <rect rx="8" id="svg_2" height="32" width="41" y="2.639" x="77.17747" stroke-width="0" stroke="#000" fill="#ff0000"/>
+  <path transform="rotate(90, 98.6934, 19.1154)" id="svg_3" d="m90.61645,26.18269l8.07691,-14.13459l8.07691,14.13459l-16.15382,0z" stroke-width="0" stroke="#000" fill="#ffffff"/>
+ </g>
+</svg>
