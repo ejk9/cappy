@@ -31,10 +31,10 @@ subsequent branches are features in development
 	│   ├── index.html
 	│   └── manifest.json
 	└── src
-        ├── Assets
-            ├── Assets...
-        ├── Components
-            ├── Comp...
+        	├── Assets
+            		├── Assets...
+        	├── Components
+            		├── Comp...
 		├── App.css
 		├── App.js
 		├── App.test.js
