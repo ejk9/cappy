@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import './App.css';
 import Home from './components/pages/Home';
-import Login from './components/pages/LoginForm';
 import GUN from 'gun';
 import 'gun/sea';
 import LoginForm from "./components/pages/LoginForm";
@@ -20,14 +19,13 @@ export default function App() {
   var gunUser = gun.user();
   
   const Login = details => {
-    console.log(details);
-
     gunUser.auth(details.username, details.password, function(ack){
-      console.log(ack);
       if(ack.err){
-          alert("Error");
+        setError("Wrong user or password");
       } else {
-          alert("Successful")
+        console.log("Success");
+        setError("");
+        <Route path="*" element={<Home/>}/>
       }
     });
   }
@@ -36,12 +34,55 @@ export default function App() {
     console.log(details);
 
     gunUser.create(details.username, details.password, function(ack){
-      console.log(ack);
-      if(ack.err){
-          alert("Error");
-      } else {
-          alert("Successful")
+      var allow = false;
+      var temp = details.password.length;
+    
+      if(temp < 8){
+        setError("Password not long enough");
+        allow = false;
+      } else { 
+        allow = true;
       }
+
+      if (details.password != details.password2) {
+        setError("Passwords do not match");
+        allow = false;
+      } else {
+        allow = true;
+      }
+
+      if(details.username.length < 3){
+        setError("Username not long enough");
+        allow = false;
+      } else {
+        allow = true;
+      }
+      
+      var temp = "~@";
+      temp += details.username;
+
+      if(gun.get(temp).once && !allow){
+        setError("Username already exists!");
+      } else {
+        gunUser.create(details.username, details.password);
+        console.log("Success");
+      }
+
+      // gun.get(temp).once(function(ack){ 
+      //   if(ack == null && allow){
+      //     user.create(details.username, details.password, function(ack){
+      //     });
+      //   }else{
+      //     if (ack.err){
+      //       setError("Username Required");
+      //     } else {
+      //       setError("Username already exists!");
+      //       details.username = "";
+      //       details.password = "";
+      //       details.password2 = "";
+      //     }
+      //   }
+      // })
     });
   }
 

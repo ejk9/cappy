@@ -58,6 +58,7 @@ function LoginForm({Login, error}) {
       <div className="screen">
         <div className="screen__content">
           <form className="login" onSubmit={submitHandler}>
+          <h2>Login</h2>
             <div className="login__field">
               <i className="login__icon fas fa-user"></i>
 
@@ -72,7 +73,8 @@ function LoginForm({Login, error}) {
               onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
 
             </div>
-            <p className='register'><span className='register-prompt'>Need an account? </span><Link to='/register'>Register</Link></p>
+            <p className='registerQuestion'><span className='register-prompt'>Need an account? </span><Link to='/register'>Register</Link></p>
+            {(error != "") ? (<div className='login-error'>{error}</div>) : ""}
             <button className="button login__submit">
               <span className="button__text">Login</span>
               <i className="button__icon fas fa-chevron-right"></i>

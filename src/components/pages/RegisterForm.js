@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import './LoginForm.css';
+import './RegisterForm.css';
 import {Link} from 'react-router-dom';
-
 
 /* 
 Author: Mohithpoojary
@@ -45,7 +44,7 @@ function RegisterForm({Register, error}) {
   //     })
   // });
 
-  const [details, setDetails] = useState({username: "", password: ""});
+  const [details, setDetails] = useState({username: "", password: "", password2: ""});
 
   const submitHandler = e => {
     e.preventDefault();
@@ -58,21 +57,31 @@ function RegisterForm({Register, error}) {
       <div className="screen">
         <div className="screen__content">
           <form className="register" onSubmit={submitHandler}>
+              <h2>Register</h2>
             <div className="register__field">
               <i className="register__icon fas fa-user"></i>
-
               <input name="username" type="text" className="register__input" placeholder="Username" 
               onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
 
             </div>
             <div className="register__field">
               <i className="register__icon fas fa-lock"></i>
-
               <input name="password" type="password" className="register__input" placeholder="Password"
               onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
 
             </div>
-            <Link to='/register'>Register</Link>
+
+            <div className="register__field">
+              <i className="register__icon fas fa-lock"></i>
+              <input name="password2" type="password" className="register__input" placeholder="Confirm Password"
+              onChange={e => setDetails({...details, password2: e.target.value})} value={details.password2}/>
+
+            </div>
+
+            <Link to='/login'>Already have an account?</Link>
+
+            {(error != "") ? (<div className='register-error'>{error}</div>) : ""}
+
             <button className="button register__submit">
               <span className="button__text">Register</span>
               <i className="button__icon fas fa-chevron-right"></i>
