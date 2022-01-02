@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-import { Modal } from 'react-bootstrap';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -19,13 +18,6 @@ function Navbar() {
     }
   };
 
-  const [showUserForm, setShowUserForm] = useState(false)
-
-  const openUserForm = () => {
-    setShowUserForm(prev => !prev)
-  }
-
-
   useEffect(() => {
     showButton();
   }, []);
@@ -38,10 +30,10 @@ function Navbar() {
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             CAPPY
-            <i class='fab fa-typo3' />
+            <i class='fab fa-typo3'/>
           </Link>
           <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
+            <i className={click ? 'fas fa-times' : 'fas fa-bars'}/>
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
 
@@ -74,16 +66,13 @@ function Navbar() {
                 to='/userform'
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}>
-                Login or Sign Up
+                Login
               </Link>
             </li>
           </ul>
 
-          {button && <Button onClick={openUserForm} buttonStyle='btn--outline'>Login or Sign Up</Button>}
+          {button && <Button buttonStyle='btn--outline'>Login</Button>}
         </div>
-        
-
-
       </nav>
     </>
   );

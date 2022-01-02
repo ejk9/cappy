@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import NavBar from "./components/NavBar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import './App.css';
 import Home from './components/pages/Home';
-import UserForm from "./components/pages/UserForm";
+import Login from './components/pages/Login';
 
+// Landing Page: https://github.com/briancodex/react-website-v1
+// https://www.youtube.com/watch?v=I2UBjN5ER4s
 
 export default function App() {
   return (
@@ -14,7 +16,7 @@ export default function App() {
           <NavBar/>
           <Routes>
             <Route path='/' exact element={<Home/>}/>
-            <Route path='/userform' element={<UserForm/>}/>
+            <Route path='/login' element={<Login/>}/>
           </Routes>
         </Router>
       </>
