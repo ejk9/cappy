@@ -77,7 +77,7 @@ $('#login').on('click', function(e){
         //console.log($('#userName').val());
 
         if(ack.text == "Wrong user or password."){
-            $('#error').text(ack);
+            $('#error').text(ack.text);
         }else{
             $('#error').text($('#user').val());
         }
