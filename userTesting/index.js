@@ -75,11 +75,11 @@ $('#login').on('click', function(e){
 
     user.auth($('#user').val(), $('#pass').val(), function(ack){
         //console.log($('#userName').val());
-        console.log(ack);
-        if(ack.text = "Wrong user or password."){
-            $('#error').text(ack.text);
+
+        if(ack.text == "Wrong user or password."){
+            $('#error').text(ack);
         }else{
-            $('#error').text(name);
+            $('#error').text($('#user').val());
         }
     });
 
