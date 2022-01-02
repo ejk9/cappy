@@ -8,7 +8,7 @@ Author: Mohithpoojary
 Code: https://codepen.io/Mohuth/pen/QWgrPvp?editors=1100
 */
 
-function LoginForm({Login, error}) {
+function RegisterForm({Register, error}) {
   // $('#signup').on('click', function(e){
   //     e.preventDefault();
   //     $('#error').text("");
@@ -50,31 +50,31 @@ function LoginForm({Login, error}) {
   const submitHandler = e => {
     e.preventDefault();
 
-    Login(details);
+    Register(details);
   }
 
   return (
     <div className="container">
       <div className="screen">
         <div className="screen__content">
-          <form className="login" onSubmit={submitHandler}>
-            <div className="login__field">
-              <i className="login__icon fas fa-user"></i>
+          <form className="register" onSubmit={submitHandler}>
+            <div className="register__field">
+              <i className="register__icon fas fa-user"></i>
 
-              <input name="username" type="text" className="login__input" placeholder="Username" 
+              <input name="username" type="text" className="register__input" placeholder="Username" 
               onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
 
             </div>
-            <div className="login__field">
-              <i className="login__icon fas fa-lock"></i>
+            <div className="register__field">
+              <i className="register__icon fas fa-lock"></i>
 
-              <input name="password" type="password" className="login__input" placeholder="Password"
+              <input name="password" type="password" className="register__input" placeholder="Password"
               onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
 
             </div>
-            <p className='register'><span className='register-prompt'>Need an account? </span><Link to='/register'>Register</Link></p>
-            <button className="button login__submit">
-              <span className="button__text">Login</span>
+            <Link to='/register'>Register</Link>
+            <button className="button register__submit">
+              <span className="button__text">Register</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>				
           </form>
@@ -90,4 +90,4 @@ function LoginForm({Login, error}) {
   )
 }
 
-export default LoginForm;
+export default RegisterForm;

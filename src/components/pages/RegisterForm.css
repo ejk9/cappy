@@ -90,24 +90,24 @@ body {
 	border-radius: 60px;
 }
 
-.login {
+.register {
 	width: 320px;
 	padding: 30px;
 	padding-top: 156px;
 }
 
-.login__field {
+.register__field {
 	padding: 20px 0px;	
 	position: relative;	
 }
 
-.login__icon {
+.register__icon {
 	position: absolute;
 	top: 30px;
 	color: #7875B5;
 }
 
-.login__input {
+.register__input {
 	border: none;
 	border-bottom: 2px solid #D1D1D4;
 	background: none;
@@ -118,14 +118,14 @@ body {
 	transition: .2s;
 }
 
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
+.register__input:active,
+.register__input:focus,
+.register__input:hover {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
 
-.login__submit {
+.register__submit {
 	background: #fff;
 	font-size: 14px;
 	margin-top: 70px;
@@ -143,9 +143,9 @@ body {
 	transition: .2s;
 }
 
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
+.register__submit:active,
+.register__submit:focus,
+.register__submit:hover {
 	border-color: #6A679E;
 	outline: none;
 }

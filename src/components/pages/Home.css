@@ -7,8 +7,8 @@
   
 
 .Home {
-    min-height: calc(100% - 90px);
-    min-width: 100%;
-    position: absolute;
+  min-height: calc(100% - 90px);
+  min-width: 100%;
+  position: absolute;
 	background-color: white;
 }
