@@ -8,42 +8,8 @@ Author: Mohithpoojary
 Code: https://codepen.io/Mohuth/pen/QWgrPvp?editors=1100
 */
 
-function LoginForm({Login, error}) {
-  // $('#signup').on('click', function(e){
-  //     e.preventDefault();
-  //     $('#error').text("");
-  //     var temp = $('#passWord').val().length;
+function LoginForm({Login, loginError}) {
 
-  //     if(temp < 8){
-  //         $('#error').append("Password Not Long Enough\<br\>");
-  //         $('#passWord').val("");
-  //         allow = false;
-  //     }
-
-  //     if($('#userName').val().length < 3){
-  //         $('#error').append("Username Not Long Enough");
-  //         $('#passWord').val("");
-  //         allow = false;
-  //     }
-  //     var temp = "~@";
-  //     temp += $('#userName').val();
-
-  //     gun.get(temp).once(function(ack){ 
-  //         if(ack == null && allow){
-  //             user.create($('#userName').val(), $('#passWord').val(), function(ack){
-  //                 //console.log($('#userName').val());
-  //                 name = $('#userName').val();
-  //                 window.location.href = "login.html";
-
-  //             });
-  //         }else{
-  //             $('#error').text("");
-  //             $('#error').append("Username already exists!");
-  //             $('#passWord').val("");
-  //             $('#userName').val("");
-  //         }
-  //     })
-  // });
 
   const [details, setDetails] = useState({username: "", password: ""});
 
@@ -74,7 +40,7 @@ function LoginForm({Login, error}) {
 
             </div>
             <p className='registerQuestion'><span className='register-prompt'>Need an account? </span><Link to='/register'>Register</Link></p>
-            {(error != "") ? (<div className='login-error'>{error}</div>) : ""}
+            {(loginError != "") ? (<div className='login-error'>{loginError}</div>) : ""}
             <button className="button login__submit">
               <span className="button__text">Login</span>
               <i className="button__icon fas fa-chevron-right"></i>

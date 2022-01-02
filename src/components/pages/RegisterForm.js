@@ -7,7 +7,7 @@ Author: Mohithpoojary
 Code: https://codepen.io/Mohuth/pen/QWgrPvp?editors=1100
 */
 
-function RegisterForm({Register, error}) {
+function RegisterForm({Register, registerError}) {
   const [details, setDetails] = useState({username: "", password: "", password2: ""});
 
   const submitHandler = e => {
@@ -43,7 +43,7 @@ function RegisterForm({Register, error}) {
 
             <Link to='/login'>Already have an account?</Link>
 
-            {(error != "") ? (<div className='register-error'>{error}</div>) : ""}
+            {(registerError != "") ? (<div className='register-error'>{registerError}</div>) : ""}
 
             <button className="button register__submit">
               <span className="button__text">Register</span>

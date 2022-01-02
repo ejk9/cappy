@@ -13,7 +13,8 @@ import RegisterForm from "./components/pages/RegisterForm";
 
 export default function App() {
   const [user, setUser] = useState({username: ""});
-  const [error, setError] = useState("");
+  const [loginError, setloginError] = useState("");
+  const [registerError, setregisterError] = useState("");
 
   var gun = GUN();
   var gunUser = gun.user();
@@ -21,39 +22,37 @@ export default function App() {
   const Login = details => {
     gunUser.auth(details.username, details.password, function(ack){
       if(ack.err){
-        setError("Wrong user or password");
+        setloginError("Wrong user or password");
       } else {
         console.log("Success");
-        setError("");
+        setloginError("");
         <Route path="*" element={<Home/>}/>
       }
     });
   }
 
   const Register = details => {
-    console.log(details);
-
     var allow = true;
     var temp = details.password.length;
 
     if (!details.username.trim()) {
-      setError('Username required');
+      setregisterError('Username required');
       allow = false;
     }
   
     if (!details.password) {
-      setError('Password is required');
+      setregisterError('Password is required');
       allow = false;
     } else if (details.password.length <= 8) {
-      setError('Password needs to be at least 8 characters');
+      setregisterError('Password needs to be at least 8 characters');
       allow = false;
     }
   
     if (!details.password2) {
-      setError('Password is required');
+      setregisterError('Password is required');
       allow = false;
     } else if (details.password2 !== details.password) {
-      setError('Passwords do not match');
+      setregisterError('Passwords do not match');
       allow = false;
     }
     
@@ -63,7 +62,7 @@ export default function App() {
     gun.get(temp).once(function(ack){ 
       if(ack == null && allow){
         gunUser.create(details.username, details.password, function(ack){
-          setError("");
+          setregisterError("");
           details.username = "";
           details.password = "";
           details.password2 = "";
@@ -71,7 +70,7 @@ export default function App() {
         });
       }else{
         if (ack != null) {
-          setError("Username already exists!");
+          setregisterError("Username already exists!");
         }
 
       }
@@ -94,9 +93,9 @@ export default function App() {
                 <h2>Welcome, <span>{user.username}</span></h2>
               </div>
             ) : (
-              <Route path='/login' element={<LoginForm Login={Login} error={error}/>}/>
+              <Route path='/login' element={<LoginForm Login={Login} loginError={loginError}/>}/>
             )}
-            <Route path='/register' element={<RegisterForm Register={Register} error={error}/>}/>
+            <Route path='/register' element={<RegisterForm Register={Register} registerError={registerError}/>}/>
           </Routes>
         </Router>
         
