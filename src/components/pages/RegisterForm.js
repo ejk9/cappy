@@ -8,47 +8,10 @@ Code: https://codepen.io/Mohuth/pen/QWgrPvp?editors=1100
 */
 
 function RegisterForm({Register, error}) {
-  // $('#signup').on('click', function(e){
-  //     e.preventDefault();
-  //     $('#error').text("");
-  //     var temp = $('#passWord').val().length;
-
-  //     if(temp < 8){
-  //         $('#error').append("Password Not Long Enough\<br\>");
-  //         $('#passWord').val("");
-  //         allow = false;
-  //     }
-
-  //     if($('#userName').val().length < 3){
-  //         $('#error').append("Username Not Long Enough");
-  //         $('#passWord').val("");
-  //         allow = false;
-  //     }
-  //     var temp = "~@";
-  //     temp += $('#userName').val();
-
-  //     gun.get(temp).once(function(ack){ 
-  //         if(ack == null && allow){
-  //             user.create($('#userName').val(), $('#passWord').val(), function(ack){
-  //                 //console.log($('#userName').val());
-  //                 name = $('#userName').val();
-  //                 window.location.href = "login.html";
-
-  //             });
-  //         }else{
-  //             $('#error').text("");
-  //             $('#error').append("Username already exists!");
-  //             $('#passWord').val("");
-  //             $('#userName').val("");
-  //         }
-  //     })
-  // });
-
   const [details, setDetails] = useState({username: "", password: "", password2: ""});
 
   const submitHandler = e => {
     e.preventDefault();
-
     Register(details);
   }
 
@@ -61,20 +24,20 @@ function RegisterForm({Register, error}) {
             <div className="register__field">
               <i className="register__icon fas fa-user"></i>
               <input name="username" type="text" className="register__input" placeholder="Username" 
-              onChange={e => setDetails({...details, username: e.target.value})} value={details.username}/>
+              onChange={e => setDetails({...details, username: e.target.value})} value={details.username} required/>
 
             </div>
             <div className="register__field">
               <i className="register__icon fas fa-lock"></i>
               <input name="password" type="password" className="register__input" placeholder="Password"
-              onChange={e => setDetails({...details, password: e.target.value})} value={details.password}/>
+              onChange={e => setDetails({...details, password: e.target.value})} value={details.password} required/>
 
             </div>
 
             <div className="register__field">
               <i className="register__icon fas fa-lock"></i>
               <input name="password2" type="password" className="register__input" placeholder="Confirm Password"
-              onChange={e => setDetails({...details, password2: e.target.value})} value={details.password2}/>
+              onChange={e => setDetails({...details, password2: e.target.value})} value={details.password2} required/>
 
             </div>
 

@@ -33,58 +33,50 @@ export default function App() {
   const Register = details => {
     console.log(details);
 
-    gunUser.create(details.username, details.password, function(ack){
-      var allow = false;
-      var temp = details.password.length;
+    var allow = true;
+    var temp = details.password.length;
+
+    if (!details.username.trim()) {
+      setError('Username required');
+      allow = false;
+    }
+  
+    if (!details.password) {
+      setError('Password is required');
+      allow = false;
+    } else if (details.password.length <= 8) {
+      setError('Password needs to be at least 8 characters');
+      allow = false;
+    }
+  
+    if (!details.password2) {
+      setError('Password is required');
+      allow = false;
+    } else if (details.password2 !== details.password) {
+      setError('Passwords do not match');
+      allow = false;
+    }
     
-      if(temp < 8){
-        setError("Password not long enough");
-        allow = false;
-      } else { 
-        allow = true;
-      }
+    var temp = "~@";
+    temp += details.username;
 
-      if (details.password != details.password2) {
-        setError("Passwords do not match");
-        allow = false;
-      } else {
-        allow = true;
-      }
+    gun.get(temp).once(function(ack){ 
+      if(ack == null && allow){
+        gunUser.create(details.username, details.password, function(ack){
+          setError("");
+          details.username = "";
+          details.password = "";
+          details.password2 = "";
+          alert("Success");
+        });
+      }else{
+        if (ack != null) {
+          setError("Username already exists!");
+        }
 
-      if(details.username.length < 3){
-        setError("Username not long enough");
-        allow = false;
-      } else {
-        allow = true;
       }
-      
-      var temp = "~@";
-      temp += details.username;
-
-      if(gun.get(temp).once && !allow){
-        setError("Username already exists!");
-      } else {
-        gunUser.create(details.username, details.password);
-        console.log("Success");
-      }
-
-      // gun.get(temp).once(function(ack){ 
-      //   if(ack == null && allow){
-      //     user.create(details.username, details.password, function(ack){
-      //     });
-      //   }else{
-      //     if (ack.err){
-      //       setError("Username Required");
-      //     } else {
-      //       setError("Username already exists!");
-      //       details.username = "";
-      //       details.password = "";
-      //       details.password2 = "";
-      //     }
-      //   }
-      // })
-    });
-  }
+  });
+}
 
   const Logout = () => {
     console.log("Logout");
