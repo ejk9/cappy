@@ -3,7 +3,7 @@
 
 var gun = GUN();
 // var items = gun.get('items');
-var user = gun.user();
+var user = gun.user().recall({sessionStorage: true});
 
 var name = "";
 
@@ -72,7 +72,7 @@ $('#signup').on('click', function(e){
 
 $('#login').on('click', function(e){
     e.preventDefault();
-
+    user.recall;
     user.auth($('#user').val(), $('#pass').val(), function(ack){
         //console.log($('#userName').val());
 
@@ -83,8 +83,11 @@ $('#login').on('click', function(e){
         }
     });
 
+    
 
 });
+
+
 
 // $('#passWord').keydown(function(e){
 //     //e.preventDefault();
