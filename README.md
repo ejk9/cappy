@@ -3,7 +3,7 @@ A chat app with video sync.
 
 The project goal is to provide an all in one chat app with YouTube video synchronization.
 
-A live demo of the project is up: ...
+A live demo of the project is up [here](https://cappy-6a1df.web.app/)
 
 ## Table of Contents
 - [Getting Started](#getting-started)
@@ -45,7 +45,7 @@ subsequent branches are features in development
 ### Tools Required 
 
 * Computer with Node and git
-  * We have primarily tested it with the current node LTS version - $16.13.1$. We have found that running it on version $10.12.0$ proved to be incompatible with testing and running with React.
+  * We have primarily tested it with the current node LTS version - 16.13.1. We have found that running it on version 10.12.0 proved to be incompatible with testing and running with React.
 * Browser
 
 ### Installation
