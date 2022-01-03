@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import Home from './components/pages/Home';
 import GUN from 'gun';
@@ -26,7 +26,6 @@ export default function App() {
       } else {
         console.log("Success");
         setloginError("");
-        <Route path="*" element={<Home/>}/>
       }
     });
   }
@@ -87,7 +86,7 @@ export default function App() {
         <Router>
           <NavBar/>
           <Routes>
-            <Route path='/' exact element={<Home/>}/>
+            <Route name='Home' path='/' exact element={<Home/>}/>
             {(user.username != "") ? (
               <div className="welcome">
                 <h2>Welcome, <span>{user.username}</span></h2>
@@ -96,6 +95,7 @@ export default function App() {
               <Route path='/login' element={<LoginForm Login={Login} loginError={loginError}/>}/>
             )}
             <Route path='/register' element={<RegisterForm Register={Register} registerError={registerError}/>}/>
+            <Route path='*' element={<Home/>}/>
           </Routes>
         </Router>
         
