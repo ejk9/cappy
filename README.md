@@ -3,7 +3,7 @@ A chat app with video sync.
 
 The project goal is to provide an all in one chat app with YouTube video synchronization.
 
-A live demo of the project is up: ...
+A live demo of the project is up [here](https://cappy-6a1df.web.app/)
 
 ## Table of Contents
 - [Getting Started](#getting-started)
