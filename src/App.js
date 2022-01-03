@@ -17,7 +17,7 @@ export default function App() {
   const [registerError, setregisterError] = useState("");
 
   var gun = GUN();
-  var gunUser = gun.user();
+  var gunUser = gun.user().recall({sessionStorage: true});
   
   const Login = details => {
     gunUser.auth(details.username, details.password, function(ack){
@@ -26,6 +26,7 @@ export default function App() {
       } else {
         console.log("Success");
         setloginError("");
+        window.location.href="/";
       }
     });
   }
@@ -66,6 +67,7 @@ export default function App() {
           details.password = "";
           details.password2 = "";
           alert("Success");
+          window.location.href="/";
         });
       }else{
         if (ack != null) {
