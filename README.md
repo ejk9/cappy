@@ -45,7 +45,7 @@ subsequent branches are features in development
 ### Tools Required 
 
 * Computer with Node and git
-  * We have primarily tested it with the current node LTS version - $16.13.1$. We have found that running it on version $10.12.0$ proved to be incompatible with testing and running with React.
+  * We have primarily tested it with the current node LTS version - 16.13.1. We have found that running it on version 10.12.0 proved to be incompatible with testing and running with React.
 * Browser
 
 ### Installation
