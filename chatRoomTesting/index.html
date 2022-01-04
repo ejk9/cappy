@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<body style="background-color:blueviolet;">
+
+<style>
+#messages{
+    width: 300px;
+    height: 400px;
+    max-height: 400px;
+    overflow: auto;
+
+    
+
+
+    bottom: 0;
+    left: 0;
+
+}
+
+#forMess{
+    position: relative;
+    
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="node_modules/gun/gun.js"></script>
+<script src="node_modules/gun/sea.js"></script>
+
+<div id= "login">
+<form id="login">
+
+
+<label > Username </label>
+<input name="user" placeholder="username" id="userName" autocomplete="off">
+
+<br>
+<label> Password </label>
+<input type ="password" placeholder="password" id="passWord">
+
+<br>
+<p id="error" aria-placeholder="   "></p>
+
+<br>
+<button id= "signup"> Login </button>
+
+</form>
+
+</div>
+
+
+
+
+<div>
+
+<div id="messages">
+
+hello<br>
+
+
+
+
+
+
+
+</div>
+
+<div id="forMess">
+<form id="newMess">
+    <input type="text" id="typeBox" autocomplete="off">
+
+    <button type="sumbit" id="send"> Send </button>
+
+</form>
+
+</div>
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+
+
+<script src="index.js"></script>
+
+
+
+
+</html>
