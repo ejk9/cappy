@@ -72,8 +72,7 @@ $('#signup').on('click', function(e){
 
 $('#login').on('click', function(e){
     e.preventDefault();
-    user.recall;
-    user.auth($('#user').val(), $('#pass').val(), function(ack){
+    user.auth($('#userName').val(), $('#passWord').val(), function(ack){
         //console.log($('#userName').val());
 
         if(ack.text == "Wrong user or password."){
@@ -86,20 +85,6 @@ $('#login').on('click', function(e){
     
 
 });
-
-
-
-// $('#passWord').keydown(function(e){
-//     //e.preventDefault();
-//     if($('#passWord').val().length <= 8){
-//         $('#error').val("Password Not Long Enough");
-//     }
-//     if($('#passWord').val().length > 8){
-//         $('#error').val("Password probably okay.");
-//     }
-
-// })
-
 
 
 
