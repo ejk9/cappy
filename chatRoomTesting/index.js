@@ -82,7 +82,7 @@ $('#send').on('click', function(e){
         
         
        newMessages = UN + ": " + $('#typeBox').val();
-       Messages.push(newMessages);
+    //    Messages.push(newMessages);
 
        gun.get('chat').get(Date.now()).put(newMessages);
        newMessages = "";
@@ -96,10 +96,14 @@ $('#send').on('click', function(e){
 });
 
 
-gun.get('chat').map().on(function(item, id){
-    var mes = $('#' +id).get(0) || $('<p>').attr('id',id).appendTo('#messages');
-    $(mes).text(item);
-    
+gun.get('chat').map().on(async function(item, id){
+    // var mes = $('#' +id).get(0) || $('<p>').attr('id',id).appendTo('#messages');
+    // $(mes).text(item);
+    Messages.push(item);
+
 });
-
-
+let count = 0;
+Messages.forEach((x) => {
+    let m = $('<p>').attr('id', count).appendTo('#messages');
+    m.text(x);
+})
