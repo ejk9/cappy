@@ -6,8 +6,13 @@ var username = "";
 
 var allow = true;
 
+var newMessages;
+var Messages = [];
 
+const d = new Date();
 
+var UN;
+var ID;
 
 $('#signup').on('click', function(e){
     e.preventDefault();
@@ -18,6 +23,11 @@ $('#signup').on('click', function(e){
         if(ack.text == "Wrong user or password."){
             $('#error').text(ack.text);
         }else{
+            UN = $('#userName').val();
+            gun.get('nicks').get(UN).put(UN);
+
+            gun.get('connectedUsers').get(UN).put(user.is);
+
             $('#login').hide();
             $('#messages').show();
             $('#newMess').show();
@@ -42,15 +52,40 @@ window.addEventListener('load', function(e){
         $('#newMess').hide();
     }
 
+    gun.get('connectedUsers').map().once(function(data, id){
+        //console.log(data);
+        //console.log(id);
+        if(data && user.is){
+
+        
+            if(data.pub == user.is.alias || id == user.is.alias){
+                UN = id;
+            }
+        }   
+
+    });
+
+
+
+
 
 });
 
 
-$('#newMess').on('click', function(e){
+
+
+
+$('#send').on('click', function(e){
     e.preventDefault();
 
     if(user.is && $('#typeBox').val() != ""){
-        $('#messages').append(user.is.alias +": " + $('#typeBox').val() + "\<br\>");
+        
+        
+       newMessages = UN + ": " + $('#typeBox').val();
+       Messages.push(newMessages);
+
+       gun.get('chat').get(Date.now()).put(newMessages);
+       newMessages = "";
     }
 
     //$('#typeBox').val("");
@@ -61,7 +96,10 @@ $('#newMess').on('click', function(e){
 });
 
 
+gun.get('chat').map().on(function(item, id){
+    var mes = $('#' +id).get(0) || $('<p>').attr('id',id).appendTo('#messages');
+    $(mes).text(item);
+    
+});
 
-chatWindow = document.getElementById('messages'); 
-var xH = chatWindow.scrollHeight; 
-chatWindow.scrollTo(0, xH);
+
