@@ -1,4 +1,5 @@
 # Cappy
+Unmaintained and unfinished as of now :)
 A chat app with video sync.
 
 The project goal is to provide an all in one chat app with YouTube video synchronization.
